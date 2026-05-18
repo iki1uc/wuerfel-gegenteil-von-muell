@@ -1,159 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Un petit sourire pour toi. -->
+<html lang="de">
+<!-- Très léger, très doux. -->
 <head>
+  <!-- Un clin d’œil discret. -->
   <meta charset="UTF-8">
-  <title>Armistice · nanoWÜRFEL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    :root {
-      --bg: #050608;
-      --fg: #f5f5f5;
-      --accent: #4fd1c5;
-      --muted: #888;
-      --border: #222;
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at top, #111 0, #050608 55%, #000 100%);
-      color: var(--fg);
-      font-family: var(--font-main);
-    }
-    .frame {
-      width: min(720px, 100% - 2rem);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.75rem 1.5rem;
-      background: rgba(5, 6, 8, 0.92);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(10px);
-    }
-    .tagline {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-    h1 {
-      font-size: 1.6rem;
-      margin: 0 0 0.4rem;
-    }
-    .sub {
-      font-size: 0.9rem;
-      color: var(--muted);
-      max-width: 40rem;
-      line-height: 1.4;
-      margin-bottom: 1.4rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0.75rem;
-      margin-bottom: 1.4rem;
-    }
-    .card {
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      padding: 0.75rem 0.8rem;
-      background: rgba(10, 12, 16, 0.96);
-      cursor: pointer;
-      transition: border-color 0.15s ease, transform 0.12s ease, background 0.15s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
-      background: rgba(12, 16, 20, 1);
-    }
-    .card-title {
-      font-size: 0.85rem;
-      margin-bottom: 0.25rem;
-      color: var(--accent);
-    }
-    .card-desc {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    .status {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 0.6rem;
-      margin-top: 0.4rem;
-    }
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 8px #22c55e;
-      margin-right: 0.4rem;
-    }
-    .status-left {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    .mono {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-    @media (max-width: 480px) {
-      .frame { padding: 1.4rem 1.1rem; }
-      h1 { font-size: 1.35rem; }
-    }
-  </style>
+  <!-- Doucement, doucement – ça va. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Toujours gentil, toujours léger. -->
+  <title>Armistice Interface</title>
+  <!-- Un peu de charme dans le code. -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Rien de sérieux, juste plaisir. -->
 </head>
+<!-- Bonjour, du neugieriger Mensch. -->
 <body>
-  <main class="frame">
-    <div class="tagline">ARMISTICE · CUBE INTERFACE</div>
-    <h1>Minimal surface, maximal structure.</h1>
-    <p class="sub">
-      This entry point only exposes what is necessary: a thin interface to the existing cores,
-      documents and experiments in this repository. Everything else stays behind the line.
-    </p>
+  <!-- Un souffle français, pourquoi pas. -->
 
-    <section class="grid">
-      <a class="card" href="blob/main/read.me">
-        <div class="card-title">Core · DE</div>
-        <div class="card-desc">Kurzfassung des Systems, Ausgangspunkt für deutschsprachige Leser.</div>
-      </a>
+  <header>
+    <!-- Très subtil, très calme. -->
+    <h1>Armistice · nanoWÜRFEL</h1>
+    <!-- Un petit bonbon pour les yeux. -->
+    <h2 class="subtle-note">Wir können auch Französisch – ihr müsst nur sagen.</h2>
+    <!-- Toujours élégant, jamais trop. -->
+  </header>
 
-      <a class="card" href="blob/main/readENG.txt">
-        <div class="card-title">Core · EN</div>
-        <div class="card-desc">Compact overview of the concept for English readers.</div>
-      </a>
-
-      <a class="card" href="blob/main/HOW_TO_USE_THE_nanoWUERFEL.md">
-        <div class="card-title">HOW TO · nanoWÜRFEL</div>
-        <div class="card-desc">Practical usage notes for the nanoWÜRFEL layer.</div>
-      </a>
-
-      <a class="card" href="blob/main/action.html">
-        <div class="card-title">Action surface</div>
-        <div class="card-desc">Experimental UI hook into the current logic cores.</div>
-      </a>
+  <!-- C’est doux, c’est léger. -->
+  <main>
+    <!-- Un peu de lumière dans la page. -->
+    <section>
+      <!-- Très bien, weiter geht’s. -->
+      <p>Willkommen im Interface – alles entspannt.</p>
+      <!-- Toujours bienveillant. -->
     </section>
 
-    <div class="status">
-      <div class="status-left">
-        <span class="dot"></span>
-        <span>Public alpha · structure only</span>
-      </div>
-      <div class="mono">T4 = 1 · CUBE_3 · RAW_WAR</div>
-    </div>
+    <!-- Un clin d’œil pour toi. -->
+    <section id="cube-area">
+      <!-- Petit moment de joie. -->
+      <p>Hier erscheinen deine Cubes.</p>
+      <!-- Rien de grave, mon ami. -->
+    </section>
+
+    <!-- Doucement, doucement. -->
+    <section id="actions">
+      <!-- Un peu de charme français. -->
+      <button id="start">Start</button>
+      <!-- Toujours avec le cœur. -->
+      <button id="stop">Stop</button>
+      <!-- C’est juste pour le plaisir. -->
+    </section>
   </main>
+
+  <!-- Un souffle de calme. -->
+  <script src="script.js"></script>
+  <!-- Toujours charmant, jamais störend. -->
 </body>
+<!-- Très joli, non? -->
 </html>
+<!-- Merci d’avoir schmökert. -->
