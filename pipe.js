@@ -1,5 +1,5 @@
 // pipe.js – Zentrale Pipeline für alle Cubes
-// Erfasst: Masken, Kernbereiche, wissenschaftliche Outputs
+// Masken, Kernbereiche, wissenschaftliche Outputs, Auto‑Scaling, Shine‑Engine
 
 // Liste aller Cubes im System
 const cubeList = [
@@ -28,37 +28,43 @@ function autoScaleOutput() {
   out.style.transformOrigin = "top left";
 }
 
+// 🔥 Intelligenter Shine‑Modus (weiß → schwarz → farbig)
+function autoShine() {
+  const out = document.getElementById("out");
+  if (!out) return;
+
+  const bg = window.getComputedStyle(out).backgroundColor;
+
+  // Zufallsfarbe für farbigen Shine
+  const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 90%, 60%)`;
+
+  // Hintergrundhelligkeit bestimmen
+  const rgb = bg.match(/\d+/g).map(Number);
+  const brightness = (rgb[0] + rgb[1] + rgb[2]) / 3;
+
+  let shineColor = "#fff"; // Standard: weiß
+
+  // Wenn Hintergrund hell → schwarzer Shine
+  if (brightness > 150) {
+    shineColor = "rgba(0,0,0,0.9)";
+  }
+
+  // Wenn Text lang → farbiger Shine
+  const text = out.innerText;
+  if (text.length > 400) {
+    shineColor = randomColor;
+  }
+
+  // Shine anwenden
+  out.style.textShadow = `
+    0 0 12px ${shineColor},
+    0 0 24px ${shineColor},
+    0 0 36px ${shineColor}
+  `;
+}
+
 // Pipeline‑Start
 function pipe_init(cubeID) {
   const cube = cubeList.find(c => c.id === cubeID);
   if (!cube) return;
 
-  // Maske laden
-  fetch(cube.mask)
-    .then(r => r.text())
-    .then(t => {
-      document.getElementById("mask").innerHTML = t;
-    });
-
-  // Kernbereich setzen
-  document.getElementById("core").innerHTML = `
-    <div class="core-title">${cube.core}</div>
-    <div class="core-info">Pipeline aktiv – Cube ${cubeID}</div>
-  `;
-
-  // Wissenschaftlicher Output vorbereiten
-  document.getElementById("out").innerHTML = `
-    <div class="out-title">Wissenschaftlicher Output – Cube ${cubeID}</div>
-    <div class="out-ist">IST: Initialisiert</div>
-    <div class="out-soll">SOLL: Verbund bereit</div>
-  `;
-
-  // 🔥 Auto‑Scaling aktivieren
-  autoScaleOutput();
-}
-
-// Automatischer Start
-window.addEventListener("DOMContentLoaded", () => {
-  const id = parseInt(document.body.getAttribute("data-cube"));
-  pipe_init(id);
-});
