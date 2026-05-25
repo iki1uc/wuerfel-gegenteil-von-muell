@@ -3,26 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Cube‑0</title>
-  <link rel="stylesheet" href="c0.css">
-  <link rel="stylesheet" href="core0.css">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Pipeline + Shine -->
+  <script src="pipe.js"></script>
+  <script src="shine-presenter.js"></script>
 </head>
 
-<body>
+<body onload="pipe_init(0)">
 
-  <!-- Markenzeichen / Action-Maske -->
-  <div id="mask">
-    <!-- mask.html wird hier dynamisch eingefügt -->
-  </div>
+  <!-- Maskenbereich -->
+  <div id="mask"></div>
 
-  <!-- Großer Kernbereich (4x–8x) -->
+  <!-- Kernbereich -->
   <div id="core"></div>
 
   <!-- Wissenschaftlicher Output -->
   <div id="out"></div>
-
-  <script src="pipe.js"></script>
-  <script src="c0.js"></script>
-  <script src="out0.js"></script>
 
 </body>
 </html>
