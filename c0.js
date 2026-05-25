@@ -25,3 +25,10 @@ function c0_out(ist, soll) {
 
 // Beispielstart
 c0_out("System bereit", "System synchron");
+// STATUS-MELDER FÜR CUBE-0
+window.cube_status["cube0"] = {
+  ok: true,
+  reason: "",
+  needs: []
+};
+
