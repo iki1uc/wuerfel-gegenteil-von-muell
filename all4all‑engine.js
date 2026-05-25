@@ -1,4 +1,12 @@
 const cubes = {
+  0: {
+    evo: "NEUTRAL",
+    quotes: [],
+    count: 0,
+    timer: null,
+    active: false   // WICHTIG: Cube‑0 ist NICHT aktiv
+  },
+
   1: {
     evo: "EVO8",
     quotes: [
@@ -7,7 +15,8 @@ const cubes = {
       "Ordnung ist die leise Form von Intelligenz."
     ],
     count: 0,
-    timer: null
+    timer: null,
+    active: true
   },
 
   2: {
@@ -18,7 +27,8 @@ const cubes = {
       "Gemeinschaft entsteht durch bewusste Entscheidungen."
     ],
     count: 0,
-    timer: null
+    timer: null,
+    active: true
   },
 
   3: {
@@ -29,17 +39,15 @@ const cubes = {
       "Wer weiter sieht, bewegt die Welt."
     ],
     count: 0,
-    timer: null
+    timer: null,
+    active: true
   }
 };
-
-
-// START
 function cubeStart(id) {
   const cube = cubes[id];
-  const out = document.getElementById("out" + id);
+  if (!cube.active) return;   // Cube‑0 blockieren
 
-  // Wenn Timer schon läuft → nichts tun
+  const out = document.getElementById("out" + id);
   if (cube.timer) return;
 
   cube.timer = setInterval(() => {
@@ -52,29 +60,27 @@ function cubeStart(id) {
   }, 1500);
 }
 
-
-// STOP
 function cubeStop(id) {
   const cube = cubes[id];
+  if (!cube.active) return;   // Cube‑0 blockieren
+
   clearInterval(cube.timer);
   cube.timer = null;
 }
 
-
-// RESET
 function cubeReset(id) {
   const cube = cubes[id];
+  if (!cube.active) return;   // Cube‑0 blockieren
+
   const out = document.getElementById("out" + id);
 
   cube.count = 0;
   clearInterval(cube.timer);
   cube.timer = null;
 
-  // neuer Spruch sofort
   const quote = cube.quotes[Math.floor(Math.random() * cube.quotes.length)];
 
   out.innerText =
     cube.evo + " → " + quote +
     "\nWiederholung: 0";
 }
-
