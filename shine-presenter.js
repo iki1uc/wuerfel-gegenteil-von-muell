@@ -41,4 +41,33 @@ function shinePresent() {
     shineColor = "rgba(0,0,0,0.9)";
   }
 
+  // langer Text → farbiger Shine
+  if (length > 400) {
+    shineColor = `hsl(${Math.floor(Math.random() * 360)}, 90%, 60%)`;
+  }
 
+  out.style.textShadow = `
+    0 0 12px ${shineColor},
+    0 0 24px ${shineColor},
+    0 0 36px ${shineColor}
+  `;
+
+  // -----------------------------
+  // 3) Auto‑Scaling (1× / 2× / 4× / 8×)
+  // -----------------------------
+  let scale = 1;
+  if (length > 200) scale = 2;
+  if (length > 400) scale = 4;
+  if (length > 800) scale = 8;
+
+  out.style.transform = `scale(${scale})`;
+  out.style.transformOrigin = "top left";
+
+  // -----------------------------
+  // 4) Besucher‑Modus (Smooth Fade)
+  // -----------------------------
+  out.style.opacity = "0";
+  setTimeout(() => {
+    out.style.opacity = "1";
+  }, 50);
+}
