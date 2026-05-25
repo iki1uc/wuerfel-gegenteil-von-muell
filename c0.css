@@ -1,1 +1,37 @@
+/* Cube‑0 Basis CSS */
+
+/* Seite neutralisieren */
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #eee;
+  font-family: Arial, sans-serif;
+}
+
+/* Maskenbereich */
+#mask {
+  width: 100%;
+  padding: 10px;
+  background: #222;
+  border-bottom: 2px solid #444;
+}
+
+/* Kernbereich */
+#core {
+  width: 100%;
+  min-height: 300px;
+  padding: 20px;
+  background: #181818;
+  border-bottom: 2px solid #333;
+}
+
+/* Wissenschaftlicher Output */
+#out {
+  width: 100%;
+  padding: 20px;
+  background: #202020;
+  color: #9df;
+  font-size: 1.1rem;
+}
 
