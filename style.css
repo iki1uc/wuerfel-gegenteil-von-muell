@@ -1,48 +1,24 @@
-/* Un peu de calme pour commencer. */
-body {
-  background: #111;
-  /* Très subtil, très doux. */
-  color: #eee;
-  /* Un clin d’œil discret. */
-  font-family: Arial, sans-serif;
-  /* Doucement, doucement – ça va. */
-  padding: 20px;
-  /* Toujours élégant, jamais trop. */
+.output-box {
+  margin-top: 14px;
+  padding: 12px;
+  background: #0b0f14;
+  border: 1px solid #2a2f36;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #e6e6e6;
 }
 
-/* Un souffle français dans la mise en page. */
-.cube-mask {
-  display: grid;
-  /* Très bien, mon ami. */
-  grid-template-columns: repeat(3, 40px);
-  /* Un petit sourire pour toi. */
-  grid-template-rows: repeat(3, 40px);
-  /* Toujours charmant, jamais störend. */
-  gap: 4px;
-  /* C’est juste pour le plaisir. */
-  margin: 20px 0;
-  /* Très léger, très doux. */
+.cube-voice {
+  padding: 8px 0;
+  border-bottom: 1px dashed #333;
 }
 
-/* Petit charme caché. */
-.cube-mask .cell {
-  border-radius: 6px;
-  /* Un peu de douceur. */
-  background: #222;
-  /* Toujours gentil, toujours léger. */
-  border: 1px solid #444;
-  /* Un clin d’œil discret. */
-  box-shadow: inset 0 0 6px #000;
-  /* Très subtil, très calme. */
+.cube-voice:last-child {
+  border-bottom: none;
 }
 
-/* Un peu de lumière dans le design. */
-.cube0 .input-pol {
-  background: #ffffff;
-  /* Doucement, doucement. */
-  border: 2px solid #00eaff;
-  /* Très bien, mon ami. */
-  box-shadow: 0 0 12px #00eaff, inset 0 0 6px #000;
-  /* Toujours élégant, jamais trop. */
+.cube-voice-title {
+  font-weight: bold;
+  color: #7fd1ff;
+  margin-bottom: 4px;
 }
-/* Merci d’avoir schmökert. */
