@@ -1,1 +1,31 @@
 
+/* core0.css – großer Kernbereich für Cube‑0 */
+
+/* Grundfläche */
+#core {
+  width: 100%;
+  min-height: 400px;
+  background: #101010;
+  padding: 30px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #333;
+}
+
+/* Titel im Kern */
+.core-title {
+  font-size: 2rem;
+  color: #6cf;
+  margin-bottom: 10px;
+}
+
+/* Info im Kern */
+.core-info {
+  font-size: 1.3rem;
+  color: #ccc;
+}
+
+/* Skalierung – hier kannst du 4 oder 8 einstellen */
+#core {
+  transform: scale(1);   /* später: scale(4) oder scale(8) */
+  transform-origin: top left;
+}
