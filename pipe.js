@@ -1,7 +1,23 @@
-// GLOBALER STATUS-CONTAINER
-window.cube_status = window.cube_status || {};
+// -------------------------------------------
+//  GLOBALER STATUS + WEISHEITEN
+// -------------------------------------------
 
-// Pipeline‑Start
+window.cube_status = window.cube_status || {};
+window.cube_outputs = window.cube_outputs || {};
+
+const cubeWisdom = {
+  cube0: "Ich halte den Kern stabil und entferne Ballast.",
+  cube1: "Ich erkenne Muster, filtere Lärm und finde Strukturen.",
+  cube2: "Ich verdichte Informationen und prüfe Tragfähigkeit.",
+  cube3: "Ich sehe Zukunftslogik und markiere Chancen.",
+  cubeLive: "Ich verbinde alle Stimmen zu einem System."
+};
+
+
+// -------------------------------------------
+//  PIPELINE-START PRO CUBE
+// -------------------------------------------
+
 function pipe_init(cubeID) {
   const cube = cubeList.find(c => c.id === cubeID);
   if (!cube) return;
@@ -12,29 +28,32 @@ function pipe_init(cubeID) {
     .then(html => {
       document.getElementById("mask").innerHTML = html;
 
-      // Shine erst NACH dem Laden der Maske
       autoScaleOutput();
       autoShine();
-      if (typeof shinePresent === "function") {
-        shinePresent();
-      }
+      if (typeof shinePresent === "function") shinePresent();
 
-      // Statuspanel aktualisieren
       const statusList = cube_system_check();
       renderCubeStatusPanel(statusList);
     });
 
   // Kern setzen
-  document.getElementById("core").innerText = cube.core;
+  const core = document.getElementById("core");
+  if (core) core.innerText = cube.core;
 
-  // Wissenschaftlicher Output (Platzhalter)
-  const out = document.getElementById("out");
-  if (out) {
-    out.innerText = "IST:\nSOLL:\nAbleitung:\n\n(Wissenschaftlicher Output folgt hier…)";
+  // Weisheit erzeugen
+  window.cube_outputs[cubeID] = cubeWisdom[cubeID] || "(keine Weisheit definiert)";
+
+  // Stimmen aktualisieren
+  if (typeof renderCubeVoices === "function") {
+    renderCubeVoices();
   }
 }
 
-// Systemdiagnose
+
+// -------------------------------------------
+//  SYSTEMDIAGNOSE
+// -------------------------------------------
+
 function cube_system_check() {
   const result = [];
   for (const id in window.cube_status) {
@@ -49,7 +68,11 @@ function cube_system_check() {
   return result;
 }
 
-// Ampel‑Anzeige
+
+// -------------------------------------------
+//  AMPEL-STATUS
+// -------------------------------------------
+
 function renderCubeStatusPanel(statusList) {
   const map = {
     cube0: "status-cube0",
@@ -72,3 +95,41 @@ function renderCubeStatusPanel(statusList) {
     row.innerHTML = dot + text;
   });
 }
+
+
+// -------------------------------------------
+//  OUTPUT-BOX (FÜNF STIMMEN)
+// -------------------------------------------
+
+function renderCubeVoices() {
+  const map = {
+    cube0: "voice-cube0",
+    cube1: "voice-cube1",
+    cube2: "voice-cube2",
+    cube3: "voice-cube3",
+    cubeLive: "voice-cubeLive"
+  };
+
+  Object.keys(map).forEach(id => {
+    const el = document.getElementById(map[id]);
+    if (!el) return;
+
+    const text = window.cube_outputs[id] || "(noch kein Output)";
+    el.innerHTML =
+      `<div class='cube-voice-title'>${id}</div>` +
+      `<div class='cube-voice-body'>${text}</div>`;
+  });
+}
+
+
+// -------------------------------------------
+//  STARTMODUS – ALLE CUBES STARTEN
+// -------------------------------------------
+
+function startAllCubes() {
+  const cubes = ["cube0", "cube1", "cube2", "cube3", "cubeLive"];
+  cubes.forEach(id => pipe_init(id));
+}
+
+// Automatisch starten
+startAllCubes();
