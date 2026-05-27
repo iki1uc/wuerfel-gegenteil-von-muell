@@ -20,7 +20,7 @@
 <section class="block">
   <div class="label">Cube‑0</div>
   <h2>Neutraler Reinraum</h2>
-  <p>Cube‑0 ist sichtbar, aber nicht aktiv.  
+  <p>Cube‑0 ist sichtbar, aber nicht aktiv.<br>
      Keine EVO, kein ALL4ALL, kein Output.</p>
 </section>
 
@@ -41,5 +41,35 @@
   <p>Cube‑0 verbindet später das 1. Dreieck mit dem 2. Dreieck.</p>
 </section>
 
-</body>
-</html>
+
+<!-- ---------------------------------------------------------
+     INDEX · AUTO‑ROUTER (A+B+C)
+     Entscheidet selbst: 
+     A = c0.html (Seitenmodus)
+     B = c0.js   (Modulmodus)
+     C = Inline‑C0 (Fallback)
+---------------------------------------------------------- -->
+<script>
+(function() {
+
+  // 1) JS‑Check → wenn kein JS → C‑Form (Inline)
+  if (!window || !document) {
+    console.log("C‑Form aktiv (kein JS).");
+    document.body.innerHTML += `
+      <section class="block">
+        <h2>CUBE‑0 · Inline‑Fallback</h2>
+        <p>Minimal‑Modus aktiv (C‑Form).</p>
+      </section>
+    `;
+    return;
+  }
+
+  // 2) Performance‑Check → schwache Geräte → A‑Form
+  const perf = performance.now();
+  let weak = false;
+
+  for (let i = 0; i < 20000; i++) {
+    Math.sqrt(i);
+  }
+
+  const diff = performance.now
