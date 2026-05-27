@@ -43,33 +43,29 @@
 
 
 <!-- ---------------------------------------------------------
-     INDEX · AUTO‑ROUTER (A+B+C)
-     Entscheidet selbst: 
-     A = c0.html (Seitenmodus)
-     B = c0.js   (Modulmodus)
-     C = Inline‑C0 (Fallback)
+     C‑FORM · INLINE‑C0 (Fallback)
+     Wird nur angezeigt, wenn JS fehlt oder Router C wählt.
 ---------------------------------------------------------- -->
-<script>
-(function() {
+<section id="inline-c0" style="display:none;">
+  <div class="block">
+    <div class="label">CUBE‑0 · Inline</div>
+    <h2>Neutralraum (C‑Form)</h2>
+    <p>Minimal‑Modus aktiv.<br>
+       Keine EVO, kein ALL4ALL, kein JS erforderlich.</p>
+  </div>
 
-  // 1) JS‑Check → wenn kein JS → C‑Form (Inline)
-  if (!window || !document) {
-    console.log("C‑Form aktiv (kein JS).");
-    document.body.innerHTML += `
-      <section class="block">
-        <h2>CUBE‑0 · Inline‑Fallback</h2>
-        <p>Minimal‑Modus aktiv (C‑Form).</p>
-      </section>
-    `;
-    return;
-  }
+  <section class="cube-mask cube0">
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell input-pol"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+  </section>
 
-  // 2) Performance‑Check → schwache Geräte → A‑Form
-  const perf = performance.now();
-  let weak = false;
-
-  for (let i = 0; i < 20000; i++) {
-    Math.sqrt(i);
-  }
-
-  const diff = performance.now
+  <div class="block">
+    <div class="label">System</div>
+    <p>Inline‑C0 hält
