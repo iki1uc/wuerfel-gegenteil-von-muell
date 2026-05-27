@@ -2,24 +2,31 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Cube‑0</title>
+  <title>CUBE‑0 · Neutralraum</title>
 
+  <!-- Basis-Style (du kannst später c0.css ergänzen) -->
   <link rel="stylesheet" href="style.css">
-  <script src="all4all-engine.js"></script>
+
+  <!-- C0-Logik (B-Form wird NICHT geladen, weil dies A-Form ist) -->
+  <script src="c0.js" defer></script>
 </head>
 
 <body>
 
+  <!-- Neutralraum-Maske -->
   <div id="mask"></div>
+
+  <!-- Neutralraum-Kern -->
   <div id="core"></div>
+
+  <!-- Output-Bereich -->
   <div id="out"></div>
+
+  <!-- Startsignal für A-Form -->
+  <script>
+    // A-Form: Seite lädt C0 direkt
+    console.log("C0.html geladen – A-Form aktiv (Seitenmodus).");
+  </script>
 
 </body>
 </html>
-
-q
-u
-i
-o
-e
-a
