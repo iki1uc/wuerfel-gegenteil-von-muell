@@ -13,7 +13,7 @@
 <body>
 
 <div id="nav">
-  <a href="cube0.html">CUBE‑0</a>
+  <a href="index.html">CUBE‑0</a>
   <a href="cube1.html">CUBE‑1</a>
   <a href="cube2.html">CUBE‑2</a>
   <a href="cube3.html">CUBE‑3</a>
@@ -36,6 +36,17 @@
   <div class="label">Dreieck‑Verbund</div>
   <p>Cube‑0 verbindet später das 1. Dreieck mit dem 2. Dreieck.</p>
 </section>
+
+<!-- ---------------------------------------------------------
+     START8 · AUTO‑LINK ZU CUBE‑0
+     (Start8 ist nur Hub → leitet sauber in index.html)
+---------------------------------------------------------- -->
+<script>
+(function() {
+  // Start8 setzt nur den PREV-Wert für die Schiene
+  localStorage.setItem("PREV", "start8");
+})();
+</script>
 
 </body>
 </html>
