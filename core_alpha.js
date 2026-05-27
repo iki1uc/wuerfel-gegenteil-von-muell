@@ -1,20 +1,33 @@
-console.log("core_alpha geladen – Cube-Motor aktiv.");
-// Un petit sourire pour toi.
+// ---------------------------------------------------------
+// core_alpha.js – CUBE‑0 Motor (Neutralraum)
+// Rolle: Input-Pol steuern, ohne EVO, ohne Logikdruck
+// ---------------------------------------------------------
 
-// Cube 0 Input-Pol
-// Très léger, très doux.
+console.log("core_alpha geladen – CUBE‑0 Motor aktiv.");
+
+// 1) Input-Pol für CUBE‑0 aktualisieren
 function cube0Input(value) {
-  // Un clin d’œil discret.
   const pol = document.querySelector(".cube0 .input-pol");
-  // Doucement, doucement – ça va.
-
   if (!pol) return;
-  // Rien de grave, mon ami.
 
+  // Wert setzen
   pol.textContent = value;
-  // Toujours gentil, toujours léger.
 
+  // Visuelle Bestätigung (Neutralraum-Stil)
   pol.style.boxShadow = "0 0 14px #00eaff, inset 0 0 6px #000";
-  // Très subtil, très calme.
+  pol.style.transition = "0.3s ease";
+
+  // CUBE‑0 bleibt neutral → keine weitere Logik
 }
-// Merci d’avoir schmökert.
+
+// 2) Reset-Funktion für CUBE‑0 (0‑Regel)
+function cube0Reset() {
+  const pol = document.querySelector(".cube0 .input-pol");
+  if (!pol) return;
+
+  pol.textContent = "⧉";        // Neutral-Symbol
+  pol.style.boxShadow = "none"; // kein Zug, kein Druck
+}
+
+// 3) Startsignal für CUBE‑0
+console.log("CUBE‑0 bereit – Neutralraum stabil.");
